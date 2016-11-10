@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layout>
-    
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="root">
+            <remove name="global_notices"/>
+        </reference>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/minimagento.css</name>
+            </action>
+        </reference>
+        <reference name="header">
+            <block type="directory/currency" name="currency_switcher" alias="currency_switcher" template="directory/currency/switch.phtml"/>
+        </reference>
+        <reference name="footer">
+            <remove name="cms_footer_links"/>
+            <remove name="cms_footer_links_sm"/>
+            <remove name="footer_links"/>
+            <remove name="footer_links2"/>
+            <block type="cms/block" name="cms_footer_category_links">
+                <action method="setBlockId"><block_id>footer_category_links</block_id></action>
+            </block>
+            <block type="cms/block" name="cms_footer_information_links">
+                <action method="setBlockId">
+                    <block_id>footer_information_links</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="cms_footer_account_links">
+                <action method="setBlockId">
+                    <block_id>footer_account_links</block_id>
+                </action>
+            </block>
+        </reference>
+    </default>
 </layout>
